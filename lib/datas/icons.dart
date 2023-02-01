@@ -4,7 +4,7 @@ import 'package:gojek_clone_ui/theme.dart';
 List<GojekIcon> gopayIcons = [
   GojekIcon(icon: 'pay', title: 'Bayar'),
   GojekIcon(icon: 'topup', title: 'Top Up'),
-  GojekIcon(icon: 'explore', title: 'Eksplore')
+  GojekIcon(icon: 'explore', title: 'Eksplor')
 ];
 
 List<GojekIcon> menuIcons = [

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gojek_clone_ui/components/header.dart';
+import 'package:gojek_clone_ui/datas/icons.dart';
 import 'package:gojek_clone_ui/theme.dart';
 
 class HomePage extends StatelessWidget {
@@ -18,14 +19,15 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // Search
             Padding(
-              padding: EdgeInsets.only(top: 23, left: 15, right: 15),
+              padding: const EdgeInsets.only(top: 23, left: 15, right: 15),
               child: Row(
                 children: [
                   Flexible(
                     fit: FlexFit.tight,
                     child: Container(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                           color: const Color(0xFFFAFAFA),
                           borderRadius: BorderRadius.circular(30),
@@ -37,7 +39,7 @@ class HomePage extends StatelessWidget {
                           width: 20,
                           height: 20,
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Text(
                           'Cari layanan, makanan, & tujuan',
                           style: regular14.copyWith(color: dark3),
@@ -45,7 +47,7 @@ class HomePage extends StatelessWidget {
                       ]),
                     ),
                   ),
-                  SizedBox(width: 15),
+                  const SizedBox(width: 15),
                   SizedBox(
                     width: 35,
                     height: 35,
@@ -76,6 +78,109 @@ class HomePage extends StatelessWidget {
                     ),
                   )
                 ],
+              ),
+            )
+            // Gopay
+            ,
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+              child: Container(
+                height: 96,
+                decoration: BoxDecoration(
+                    color: blue1, borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, right: 8),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 2,
+                            height: 8,
+                            decoration: BoxDecoration(
+                                color: const Color(0xFFBBBBBB),
+                                borderRadius: BorderRadius.circular(1)),
+                          ),
+                          const SizedBox(height: 4),
+                          Container(
+                            width: 2,
+                            height: 8,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(1)),
+                          )
+                        ],
+                      ),
+                    ),
+                    const Padding(padding: EdgeInsets.only(left: 8)),
+                    Column(
+                      children: [
+                        Container(
+                          height: 11,
+                          width: 118,
+                          decoration: const BoxDecoration(
+                              color: Color(0xfff9ccddb),
+                              borderRadius: BorderRadius.vertical(
+                                  bottom: Radius.circular(8))),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Container(
+                          height: 68,
+                          width: 127,
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8)),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(
+                                  'assets/images/gopay.png',
+                                  height: 14,
+                                ),
+                                SizedBox(height: 4),
+                                Text(
+                                  'Rp.12.379',
+                                  style: bold16.copyWith(color: dark1),
+                                ),
+                                Text(
+                                  'Klik & Cek riwayat',
+                                  style: semibold12_5.copyWith(color: green1),
+                                ),
+                              ]),
+                        ),
+                      ],
+                    ),
+                    ...gopayIcons.map((icon) => Flexible(
+                          fit: FlexFit.tight,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 24,
+                                height: 24,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: SvgPicture.asset(
+                                    'assets/icons/${icon.icon}.svg',
+                                    color: blue1),
+                              ),
+                              SizedBox(height: 7),
+                              Text(
+                                icon.title,
+                                style: semibold14.copyWith(color: Colors.white),
+                              )
+                            ],
+                          ),
+                        ))
+                  ],
+                ),
               ),
             )
           ],
