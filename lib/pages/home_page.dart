@@ -79,9 +79,8 @@ class HomePage extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
             // Gopay
-            ,
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
               child: Container(
@@ -131,8 +130,8 @@ class HomePage extends StatelessWidget {
                         Container(
                           height: 68,
                           width: 127,
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 6, vertical: 8),
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(8)),
@@ -143,7 +142,7 @@ class HomePage extends StatelessWidget {
                                   'assets/images/gopay.png',
                                   height: 14,
                                 ),
-                                SizedBox(height: 4),
+                                const SizedBox(height: 4),
                                 Text(
                                   'Rp.12.379',
                                   style: bold16.copyWith(color: dark1),
@@ -171,7 +170,7 @@ class HomePage extends StatelessWidget {
                                     'assets/icons/${icon.icon}.svg',
                                     color: blue1),
                               ),
-                              SizedBox(height: 7),
+                              const SizedBox(height: 7),
                               Text(
                                 icon.title,
                                 style: semibold14.copyWith(color: Colors.white),
@@ -182,7 +181,53 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-            )
+            ),
+            // List Menu
+            Padding(
+              padding: const EdgeInsets.only(left: 27, right: 27, top: 32),
+              child: SizedBox(
+                height: 160,
+                child: GridView.count(
+                  crossAxisCount: 4,
+                  mainAxisSpacing: 8,
+                  children: [
+                    ...menuIcons.map(
+                      (icon) => Container(
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                  color: (icon.icon == 'goclub')
+                                      ? Colors.white
+                                      : icon.color,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: SvgPicture.asset(
+                                'assets/icons/${icon.icon}.svg',
+                                color: (icon.icon == 'goclub')
+                                    ? icon.color
+                                    : (icon.icon == "other")
+                                        ? dark2
+                                        : Colors.white,
+                                width: 24,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 9,
+                            ),
+                            Text(
+                              icon.title,
+                              style: regular12_5.copyWith(color: dark2),
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
