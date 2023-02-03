@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gojek_clone_ui/components/header.dart';
 import 'package:gojek_clone_ui/datas/icons.dart';
+import 'package:gojek_clone_ui/datas/news.dart';
 import 'package:gojek_clone_ui/theme.dart';
 
 class HomePage extends StatelessWidget {
@@ -317,45 +318,99 @@ class HomePage extends StatelessWidget {
                         ...[
                           'Pintu masuk motor, MNC Land',
                           'Pintu keluar motor, MNC Land'
-                        ].map((text) => Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: Row(
-                                children: [
-                                  Container(
+                        ].map(
+                          (text) => Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 24,
+                                  height: 24,
+                                  decoration: BoxDecoration(
+                                      color: green2,
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: SvgPicture.asset(
+                                    'assets/icons/goride.svg',
+                                    color: Colors.white,
                                     width: 24,
-                                    height: 24,
-                                    decoration: BoxDecoration(
-                                        color: green2,
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                    child: SvgPicture.asset(
-                                      'assets/icons/goride.svg',
-                                      color: Colors.white,
-                                      width: 24,
-                                    ),
                                   ),
-                                  const SizedBox(width: 12),
-                                  Flexible(
-                                    fit: FlexFit.tight,
-                                    child: Text(
-                                      text,
-                                      style: regular14.copyWith(color: dark1),
-                                    ),
+                                ),
+                                const SizedBox(width: 12),
+                                Flexible(
+                                  fit: FlexFit.tight,
+                                  child: Text(
+                                    text,
+                                    style: regular14.copyWith(color: dark1),
                                   ),
-                                  const SizedBox(width: 24),
-                                  SvgPicture.asset(
-                                    'assets/icons/left.svg',
-                                    color: dark1,
-                                  )
-                                ],
-                              ),
-                            ))
+                                ),
+                                const SizedBox(width: 24),
+                                SvgPicture.asset(
+                                  'assets/icons/left.svg',
+                                  color: dark1,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   )
                 ],
               ),
-            )
+            ),
+            // gopay later
+            Padding(
+              padding: EdgeInsets.only(left: 20, top: 32, right: 20),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      'assets/images/gopaylater.png',
+                      height: 14,
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      'Lebih Hemat pake GoPayLater 🤩',
+                      style: bold16.copyWith(color: dark1),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      'Yuk belanja fi tokopedia pake GoPay Later dan nikmati cashback~nya~',
+                      style: regular14.copyWith(color: dark2),
+                    )
+                  ]),
+            ),
+            SizedBox(height: 24),
+            // News
+            ...news.map((item) => Padding(
+                  padding: EdgeInsets.only(bottom: 24, left: 16, right: 16),
+                  child: Container(
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(color: dark4)),
+                    child: Column(children: [
+                      Image.asset('assets/images/${item.image}'),
+                      Padding(
+                        padding: EdgeInsets.all(24),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              item.title,
+                              style: bold16.copyWith(color: dark1),
+                            ),
+                            SizedBox(height: 8),
+                            Text(
+                              item.description,
+                              style: regular14.copyWith(color: dark2),
+                            )
+                          ],
+                        ),
+                      )
+                    ]),
+                  ),
+                ))
           ],
         ),
       ),
